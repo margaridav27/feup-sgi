@@ -1,6 +1,6 @@
 # SGI 2022/2023
 
-## Group T0xG0y
+## Group T04G06
 | Name             | Number    | E-Mail             |
 | ---------------- | --------- | ------------------ |
 | Margarida Vieira         | 201907907 | up201907907@fe.up.pt                |
