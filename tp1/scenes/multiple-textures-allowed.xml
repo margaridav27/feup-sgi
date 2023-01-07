@@ -1,0 +1,2350 @@
+<sxs>
+    <scene root="demoRoot" axis_length="5"/>
+
+    <views default="main-camera">
+        <perspective id="main-camera" near="0.1" far="300" angle="45">
+            <from x="12.5" y="3.5" z="12.5" />
+            <to x="0" y="2.5" z="0" />
+        </perspective>
+        <perspective id="secundary-camera" near="0.1" far="500" angle="0.4">
+            <from x="12.5" y="12.5" z="20" />
+            <to x="0" y="-2" z="0" />
+        </perspective>
+        <perspective id="ceiling-camera" near="0.1" far="300" angle="45">
+            <from x="0" y="7.5" z="10" />
+            <to x="5" y="0" z="0" />
+        </perspective> 
+
+        <ortho id="lateral-ortho"  near="0.1" far="300" left="-5" right="5" top="5" bottom="-5" >
+            <from x="5" y="2.5" z="5" />
+            <to x="2.5" y="2.5" z="2.5" />
+        </ortho>
+        <ortho id="above-ortho-1"  near="0.1" far="300" left="-7.5" right="7.5" top="7.5" bottom="-7.5" >
+            <from x="10" y="10" z="10" />
+            <to x="5" y="0" z="5" />
+        </ortho>
+        <ortho id="above-ortho-2"  near="0.1" far="300" left="-7.5" right="7.5" top="7.5" bottom="-7.5" >
+            <from x="0" y="10" z="0" />
+            <to x="5" y="0" z="5" />
+        </ortho>
+    </views>
+
+    <ambient>
+        <ambient r="0.2" g="0.2" b="0.2" a="1.0" />
+        <background r="0.0" g="0.0" b="0.0" a="1.0" />
+    </ambient>
+
+    <lights>
+        <omni id="demo-light" enabled="0">
+            <location x="5" y="5" z="5" w="0" />
+            <ambient r="0" g="0" b="0" a="1.0" />
+            <diffuse r="1.0" g="1.0" b="1.0" a="1.0" />
+            <specular r="1.0" g="1.0" b="1.0" a="1.0" />
+            <attenuation constant="1.0" linear="0.0" quadratic="0.0" />
+        </omni>
+        <omni id="ambient-light" enabled="1">
+            <location x="5" y="5" z="5" w="0" />
+            <ambient r="0.5" g="0.5" b="0.5" a="0.1" />
+            <diffuse r="0.5" g="0.5" b="0.5" a="1.0" />
+            <specular r="0.5" g="0.5" b="0.5" a="1.0" />
+            <attenuation constant="1.0" linear="0.0" quadratic="0.0" />
+        </omni>
+        <omni id="red-light" enabled="0">
+            <location x="5" y="5" z="5" w="1.0" />
+            <ambient r="0.9" g="0.45" b="0.45" a="1.0" />
+            <diffuse r="1.0" g="0" b="0" a="1.0" />
+            <specular r="1.0" g="0" b="0" a="1.0" />
+            <attenuation constant="1.0" linear="0.0" quadratic="0.0" />
+        </omni>
+        <omni id="blue-light" enabled="0">
+            <location x="5" y="5" z="5" w="1.0" />
+            <ambient r="0.25" g="0.5" b="1.0" a="1.0" />
+            <diffuse r="0" g="0" b="1.0" a="1.0" />
+            <specular r="0" g="0" b="1.0" a="1.0" />
+            <attenuation constant="1.0" linear="0.0" quadratic="0.0" />
+        </omni>
+        <omni id="sunset-light" enabled="0">
+            <location x="5" y="5" z="5" w="1" />
+            <ambient r="0.3" g="0.3" b="0.3" a="1.0" />
+            <diffuse r="0.45" g="0.45" b="0.2" a="1.0" />
+            <specular r="0.9" g="0.9" b="0.45" a="1.0" />
+            <attenuation constant="1.0" linear="0.0" quadratic="0.0" />
+        </omni> 
+        
+        <spot id="box-spot" enabled="0" angle="25" exponent="1">          
+            <location x="7.5" y="2" z="3" w="1.0" />
+            <target x="7.5" y="0" z="3" />
+            <ambient r="1.0" g="1.0" b="1.0" a="1.0" />
+            <diffuse r="1.0" g="1.0" b="1.0" a="1.0" />
+            <specular r="1.0" g="1.0" b="1.0" a="1.0" />
+            <attenuation constant="0.0" linear="1.0" quadratic="0.0" />
+        </spot>
+        <spot id="bench-spot" enabled="0" angle="45" exponent="1">          
+            <location x="3" y="2.5" z="3.5" w="1.0" />
+            <target x="3" y="2.5" z="3.5" />
+            <ambient r="1.0" g="1.0" b="1.0" a="1.0" />
+            <diffuse r="1.0" g="1.0" b="1.0" a="1.0" />
+            <specular r="1.0" g="1.0" b="1.0" a="1.0" />
+            <attenuation constant="0.0" linear="1.0" quadratic="0.0" />
+        </spot>
+        <spot id="plates-rack-spot" enabled="0" angle="45" exponent="1">          
+            <location x="0" y="2" z="4.5" w="1.0" />
+            <target x="0" y="2" z="4.5" />
+            <ambient r="1.0" g="1.0" b="1.0" a="1.0" />
+            <diffuse r="1.0" g="1.0" b="1.0" a="1.0" />
+            <specular r="1.0" g="1.0" b="1.0" a="1.0" />
+            <attenuation constant="0.0" linear="1.0" quadratic="0.0" />
+        </spot>
+    </lights>
+
+    <textures>
+        <texture id="demoTexture" file="scenes/images/leaves.jpg" />
+
+        <texture id="bricks-wallpaper" file="scenes/images/bricks.jpg" />
+        <texture id="black-bricks-wallpaper" file="scenes/images/black-bricks.jpg" />
+        <texture id="white-bricks-wallpaper" file="scenes/images/white-bricks.jpg" />
+
+        <texture id="rubber-floor" file="scenes/images/rubber-floor.webp" />
+
+        <texture id="red" file="scenes/images/red.jpg" />
+        <texture id="white" file="scenes/images/white.png" />
+        <texture id="wood" file="scenes/images/wood.jpg" />
+        <texture id="black-leather" file="scenes/images/black-leather.jpg" />
+        <texture id="light-steel" file="scenes/images/light-steel.webp" />
+        <texture id="dark-steel" file="scenes/images/dark-steel.jpg" />
+        <texture id="light-rubber" file="scenes/images/light-rubber.webp" />
+
+        <texture id="cbum" file="scenes/images/cbum.jpg" />
+        <texture id="ronnie" file="scenes/images/ronnie.jpg" />
+        <texture id="minion" file="scenes/images/minion.webp" />
+        <texture id="shark" file="scenes/images/shark.jpg" />
+
+        <texture id="tape" file="scenes/images/tape.jpg" />
+
+        <texture id="plate-letters" file="scenes/images/plate-letters.png" />
+        <texture id="plate-letters-5" file="scenes/images/plate-letters-5.png" />
+        <texture id="plate-letters-10" file="scenes/images/plate-letters-10.png" />
+        <texture id="plate-letters-15" file="scenes/images/plate-letters-15.png" />
+        <texture id="plate-letters-20" file="scenes/images/plate-letters-20.png" />
+
+        <texture id="plate-color" file="scenes/images/plate-color.png" />
+        <texture id="plate-color-5" file="scenes/images/plate-color-5.png" />
+        <texture id="plate-color-10" file="scenes/images/plate-color-10.png" />
+        <texture id="plate-color-15" file="scenes/images/plate-color-15.png" />
+        <texture id="plate-color-20" file="scenes/images/plate-color-20.png" />
+
+        <texture id="digital-clock" file="scenes/images/digital-clock.jpg" />
+
+        <texture id="gym-mat-blue" file="scenes/images/gym-mat-blue.jpg" />
+        <texture id="gym-mat-green" file="scenes/images/gym-mat-green.jpg" />
+        <texture id="gym-mat-grey" file="scenes/images/gym-mat-grey.jpg" />
+        <texture id="gym-mat-light-green" file="scenes/images/gym-mat-light-green.jpg" />
+        <texture id="gym-mat-pink" file="scenes/images/gym-mat-pink.jpg" />
+        <texture id="gym-mat-yellow" file="scenes/images/gym-mat-yellow.jpg" />
+
+        <texture id="boxe-bag-tb" file="scenes/images/boxe-bag-tb.png" />
+        <texture id="boxe-bag-middle" file="scenes/images/boxe-bag-middle.webp" />
+
+        <texture id="black-metal" file="scenes/images/black-metal.jpg" />
+        <texture id="dumbbell-10" file="scenes/images/dumbbell-letters.png" />
+    </textures>
+
+    <materials>
+        <material id="white-default-material" shininess="10">
+            <ambient r="1.0" g="1.0" b="1.0" a="1.0" />
+            <diffuse r="1.0" g="1.0" b="1.0" a="1.0" />
+            <specular r="1.0" g="1.0" b="1.0" a="1.0" />
+            <emission r="0" g="0" b="0" a="1.0" />
+        </material>
+        <material id="dark-material" shininess="5">
+            <ambient r="0.05" g="0.05" b="0.05" a="1" />
+            <diffuse r="0.1" g="0.1" b="0.1" a="1.0" />
+            <specular r="0.1" g="0.1" b="0.1" a="1.0" />
+            <emission r="0.0" g="0.0" b="0.0" a="1.0" />
+        </material>
+    </materials>
+
+    <transformations>
+        <transformation id="demoTransform">
+            <scale x="5" y="1" z="5" />
+            <rotate axis="x" angle="-45" />
+            <rotate axis="z" angle="-45" />
+        </transformation>
+    </transformations>
+
+    <primitives>
+        <primitive id="rectangle">
+            <rectangle x1="0" y1="0" x2="1" y2="1" />
+        </primitive>
+        <primitive id="cylinder">
+            <cylinder slices="40" topRadius="0.05" bottomRadius="0.05" height="1" stacks="3"/>
+        </primitive>
+        <primitive id="cylinder2">
+            <cylinder slices="4" topRadius="1" bottomRadius="1" height="1" stacks="3" />
+        </primitive>
+        <primitive id="triangle">
+            <triangle v1="0,0,0" v2="0,1,0" v3="1,0,0"/>
+        </primitive>
+        <primitive id="sphere">
+            <sphere slices="40" radius="1" stacks="40"/>
+        </primitive>
+        <primitive id="torus">
+            <torus inner="0.15" outer="0.5 " slices="20" loops="20" />
+        </primitive>
+        <primitive id="torus1">
+            <torus inner="0.45" outer="0.68 " slices="100" loops="20" />
+        </primitive>
+        <primitive id="torus2">
+            <torus inner="0.45" outer="0.75 " slices="100" loops="20" />
+        </primitive>
+        <primitive id="torus3">
+            <torus inner="0.15" outer="1 " slices="40" loops="40" />
+        </primitive>
+    </primitives>
+
+    <components>
+        <!-- ##### Start Cube Component ##### -->
+
+        <component id="cube-face-front" >
+            <transformation></transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1"/>
+            <children>
+                <primitiveref id="rectangle" />
+            </children>
+        </component>
+        <component id="cube-face-back" >
+            <transformation>
+                <translate x="1" y="0" z="-1" />
+                <rotate angle="3.14" axis="y" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1"/>
+            <children>
+                <primitiveref id="rectangle" />
+            </children>
+        </component>
+        <component id="cube-face-right" >
+            <transformation>
+                <translate x="1" y="0" z="0" />
+                <rotate angle="1.57" axis="y" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1"/>
+            <children>
+                <primitiveref id="rectangle" />
+            </children>
+        </component>
+        <component id="cube-face-left" >
+            <transformation>
+                <translate x="0" y="0" z="-1" />
+                <rotate angle="-1.57" axis="y" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1"/>
+            <children>
+                <primitiveref id="rectangle" />
+            </children>
+        </component>
+        <component id="cube-face-top" >
+            <transformation>
+                <translate x="0" y="1" z="0" />
+                <rotate angle="-1.57" axis="x" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1"/>
+            <children>
+                <primitiveref id="rectangle" />
+            </children>
+        </component>
+        <component id="cube-face-bottom" >
+            <transformation>
+                <translate x="0" y="0" z="-1" />
+                <rotate angle="1.57" axis="x" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1"/>
+            <children>
+                <primitiveref id="rectangle" />
+            </children>
+        </component>
+        <component id="cube" >
+            <transformation>
+                <translate x="0" y="0" z="1" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="cube-face-front" />
+                <componentref id="cube-face-back" />
+                <componentref id="cube-face-right" />
+                <componentref id="cube-face-left" />
+                <componentref id="cube-face-top" />
+                <componentref id="cube-face-bottom" />
+            </children>
+        </component>
+
+        <!-- ##### End Cube Component ##### -->
+
+        <!-- Floor -->
+        <component id="floor">
+            <transformation>
+                <scale x="10" y="1" z="10" />
+                <translate x="0" y="0" z="1" />
+                <rotate angle="-1.57" axis="x" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+                <material id="inherit" />
+            </materials>
+            <texture id="rubber-floor" length_t="0.15" length_s="0.15" />
+            <children>
+                <primitiveref id="rectangle" />
+            </children>
+        </component>
+
+        <!-- Walls -->
+        <component id="wall-right">
+            <transformation>
+                <scale  x="10" y="5" z="1" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <textures>
+                <texture id="bricks-wallpaper" length_t="1" length_s="1" />
+                <texture id="black-bricks-wallpaper" length_t="1" length_s="1" />
+                <texture id="white-bricks-wallpaper" length_t="1" length_s="1" />
+            </textures>
+            <children>
+                <primitiveref id="rectangle" />
+            </children>
+        </component>
+        <component id="wall-left">
+            <transformation>
+                <scale  x="1" y="5" z="10" />
+                <translate x="0" y="0" z="1" />
+                <rotate angle="1.57" axis="y" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <textures>
+                <texture id="bricks-wallpaper" length_t="1" length_s="1" />
+                <texture id="black-bricks-wallpaper" length_t="1" length_s="1" />
+                <texture id="white-bricks-wallpaper" length_t="1" length_s="1" />
+            </textures>
+            <children>
+                <primitiveref id="rectangle" />
+            </children>
+        </component>
+
+        <!-- Wall balls -->
+        <component id="wall-ball-s">
+            <transformation>
+                <translate x="6.5" y="0.15" z="2.5" />
+                <scale x="0.15" y="0.15" z="0.15" />
+            </transformation>
+            <materials>
+                <material id='inherit' />
+            </materials>
+            <texture id="red" length_t="1" length_s="1"/>
+            <children>
+                <primitiveref id="sphere" />
+            </children>
+        </component>
+        <component id="wall-ball-m">
+            <transformation>
+                <translate x="7" y="0.2" z="2.5" />
+                <scale x="0.20" y="0.20" z="0.20" />
+            </transformation>
+            <materials>
+                <material id='inherit' />
+            </materials>
+            <texture id="red" length_t="1" length_s="1"/>
+            <children>
+                <primitiveref id="sphere" />
+            </children>
+        </component>
+        <component id="wall-ball-l">
+            <transformation>
+                <translate x="6.5" y="0.25" z="2" />
+                <scale x="0.25" y="0.25" z="0.25" />
+            </transformation>
+            <materials>
+                <material id='inherit' />
+            </materials>
+            <texture id="red" length_t="1" length_s="1"/>
+            <children>
+                <primitiveref id="sphere" />
+            </children>
+        </component>
+
+        <!-- Gym Box -->
+        <component id="gym-box">
+            <transformation>
+                <translate x="7" y="0" z="2" />
+                <rotate angle="0.785" axis="y" />
+                <scale x="1.5" y="1.5" z="1.5"/>
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="wood" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="cube" />
+            </children>
+        </component>
+
+        <!-- ##### Start Digital Clock Component ##### -->
+
+        <component id="digital-clock-display">
+            <transformation>
+                <translate x="0" y="0" z="0.05"/>
+                <scale x="0.05" y="0.75" z="1.5"/>
+            </transformation>
+            <materials>
+                <material id='inherit' />
+            </materials>
+            <texture id="digital-clock" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="cube" />
+            </children>
+        </component>
+        <component id="digital-clock-frame-t">
+            <transformation>
+                <translate x="0" y="0.75" z="0.05"/>
+                <scale x="0.1" y="0.05" z="1.5"/>
+            </transformation>
+            <materials>
+                <material id='inherit' />
+            </materials>
+            <texture id="red" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="cube" />
+            </children>
+        </component>
+        <component id="digital-clock-frame-b">
+            <transformation>
+                <translate x="0" y="0" z="0.05"/>
+                <scale x="0.1" y="0.05" z="1.5"/>
+            </transformation>
+            <materials>
+                <material id='inherit' />
+            </materials>
+            <texture id="red" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="cube" />
+            </children>
+        </component>
+        <component id="digital-clock-frame-l">
+            <transformation>
+                <translate x="0" y="0" z="1.55"/>
+                <scale x="0.1" y="0.8" z="0.05"/>
+            </transformation>
+            <materials>
+                <material id='inherit' />
+            </materials>
+            <texture id="red" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="cube" />
+            </children>
+        </component>
+        <component id="digital-clock-frame-r">
+            <transformation>
+                <scale x="0.1" y="0.8" z="0.05"/>
+            </transformation>
+            <materials>
+                <material id='inherit' />
+            </materials>
+            <texture id="red" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="cube" />
+            </children>
+        </component>
+        <component id="digital-clock">
+            <transformation>
+                <translate x="0.01" y="3" z="4"/>
+            </transformation>
+            <materials>
+                <material id='inherit' />
+            </materials>
+            <texture id="none" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="digital-clock-display" />
+                <componentref id="digital-clock-frame-t" />
+                <componentref id="digital-clock-frame-b" />
+                <componentref id="digital-clock-frame-l" />
+                <componentref id="digital-clock-frame-r" />
+            </children>
+        </component>
+
+        <!-- ##### End Digital Clock Component ##### -->
+
+        <!-- ##### Start Gym Mat Component ##### -->
+
+        <component id="gym-mat-hole-right">
+            <transformation>
+                <translate x="1.2" y="0.025" z="0.2" />
+                <scale x="0.075" y="0.04" z="0.075" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="rubber-floor" length_t="1" length_s="1" />
+            <children>
+                <primitiveref id="sphere" />
+            </children>
+        </component>
+        <component id="gym-mat-hole-left">
+            <transformation>
+                <translate x="0.3" y="0.025" z="0.2" />
+                <scale x="0.075" y="0.04" z="0.075" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="rubber-floor" length_t="1" length_s="1" />
+            <children>
+                <primitiveref id="sphere" />
+            </children>
+        </component>
+        <component id="gym-mat-structure">
+            <transformation>
+                <scale x="1.5" y="0.05" z="3" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1" />
+            <children>
+                <componentref id="cube" />
+            </children>
+        </component>
+        <component id="gym-mat-1">
+            <transformation>
+                <translate x="6.25" y="0.025" z="5.5" />
+                <rotate angle="1.15" axis="y" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <textures>
+                <texture id="gym-mat-blue" length_t="1" length_s="1" />
+                <texture id="gym-mat-grey" length_t="1" length_s="1" />
+                <texture id="gym-mat-green" length_t="1" length_s="1" />
+                <texture id="gym-mat-yellow" length_t="1" length_s="1" />
+                <texture id="gym-mat-pink" length_t="1" length_s="1" />
+                <texture id="gym-mat-light-green" length_t="1" length_s="1" />
+            </textures>
+            <children>
+                <componentref id="gym-mat-structure" />
+                <componentref id="gym-mat-hole-left" />
+                <componentref id="gym-mat-hole-right" />
+            </children>
+        </component>
+        <component id="gym-mat-2">
+            <transformation>
+                <translate x="6.25" y="0.025" z="7.35" />
+                <rotate angle="1.15" axis="y" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <textures>
+                <texture id="gym-mat-blue" length_t="1" length_s="1" />
+                <texture id="gym-mat-green" length_t="1" length_s="1" />
+                <texture id="gym-mat-grey" length_t="1" length_s="1" />
+                <texture id="gym-mat-light-green" length_t="1" length_s="1" />
+                <texture id="gym-mat-yellow" length_t="1" length_s="1" />
+                <texture id="gym-mat-pink" length_t="1" length_s="1" />
+            </textures>
+            <children>
+                <componentref id="gym-mat-structure" />
+                <componentref id="gym-mat-hole-left" />
+                <componentref id="gym-mat-hole-right" />
+            </children>
+        </component>
+
+        <!-- ##### End Gym Mat Component ##### -->
+
+        <!-- ##### Start Boxe Bag Component ##### -->
+
+        <component id="boxe-bag-middle-bottom">
+            <transformation>
+                <translate x="0" y="1.375" z="0" />
+                <scale x="0.6" y="0.15" z="0.6" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="boxe-bag-tb" length_t="1" length_s="1" />
+            <children>
+                <primitiveref id="sphere" />
+            </children>
+        </component>
+        <component id="boxe-bag-middle-top">
+            <transformation>
+                <translate x="0" y="3.5" z="0" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="none" />
+            <children>
+                <componentref id="boxe-bag-middle-bottom" />
+            </children>
+        </component>
+        <component id="boxe-bag-middle">
+            <transformation>
+                <translate x="0" y="1.375" z="0" />
+                <scale x="12" y="3.5" z="12" />
+                <rotate axis="x" angle="-1.57" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="boxe-bag-middle" length_t="1" length_s="1" />
+            <children>
+                <primitiveref id="cylinder" />
+            </children>
+        </component>
+        <component id="boxe-bag-base-1">
+            <transformation>
+                <scale x="17" y="0.5" z="17" />
+                <rotate axis="x" angle="-1.57" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="light-steel" length_t="1" length_s="1" />
+            <children>
+                <primitiveref id="cylinder" />
+            </children>
+        </component>
+        <component id="boxe-bag-base-2">
+            <transformation>
+                <scale x="0.85" y="0.05" z="0.85" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="light-steel" length_t="1" length_s="1" />
+            <children>
+                <primitiveref id="sphere" />
+            </children>
+        </component>
+        <component id="boxe-bag-base-3">
+            <transformation>
+                <translate x="0" y="0.5" z="0" />
+                <scale x="0.85" y="0.15" z="0.85" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="light-steel" length_t="1" length_s="1" />
+            <children>
+                <primitiveref id="sphere" />
+            </children>
+        </component>
+        <component id="boxe-bag-base-4">
+            <transformation>
+                <translate x="0" y="0.625" z="0" />
+                <scale x="1.75" y="0.75" z="1.75" />
+                <rotate axis="x" angle="-1.57" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="light-steel" length_t="1" length_s="1" />
+            <children>
+                <primitiveref id="cylinder" />
+            </children>
+        </component>
+        <component id="boxe-bag-base">
+            <transformation>
+                <translate x="2" y="0" z="8.5" />
+                <scale x="0.8" y="0.85" z="0.8" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="none" />
+            <children>
+                <componentref id="boxe-bag-base-1" />
+                <componentref id="boxe-bag-base-2" />
+                <componentref id="boxe-bag-base-3" />
+                <componentref id="boxe-bag-base-4" />
+                <componentref id="boxe-bag-middle" />
+                <componentref id="boxe-bag-middle-top" />
+                <componentref id="boxe-bag-middle-bottom" />
+            </children>
+        </component>
+
+        <!-- ##### End Boxe Bag Component ##### -->
+
+        <!-- ##### Start Frames Components ##### -->
+
+        <!-- Frames -->
+        <component id="frame-tape">
+            <transformation>
+                <translate x="-0.025" y="-0.125" z="0" />
+                <scale x="0.05" y="0.25" z="1" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1" />
+            <children>
+                <primitiveref id="rectangle" />
+            </children>
+        </component>
+        <component id="frame-tape-d1-bottom">
+            <transformation>
+                <translate x="0.05" y="0.05" z="0.02" />
+                <rotate angle="0.785" axis="z" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1" />
+            <children>
+                <componentref id="frame-tape" />
+            </children>
+        </component>
+        <component id="frame-tape-d1">
+            <transformation>
+                <translate x="0.70" y="0.75" z="0.02" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1" />
+            <children>
+                <componentref id="frame-tape-d1-bottom" />
+            </children>
+        </component>
+        <component id="frame-tape-d2-bottom">
+            <transformation>
+                <translate x="0.75" y="0.05" z="0.02" />
+                <rotate angle="-0.785" axis="z" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1" />
+            <children>
+                <componentref id="frame-tape" />
+            </children>
+        </component>
+        <component id="frame-tape-d2">
+            <transformation>
+                <translate x="-0.70" y="0.75" z="0.02" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1" />
+            <children>
+                <componentref id="frame-tape-d2-bottom" />
+            </children>
+        </component>
+        <component id="frame-tapes">
+            <transformation>
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="tape" length_t="1" length_s="1" />
+            <children>
+                <componentref id="frame-tape-d1" />
+                <componentref id="frame-tape-d2" />
+                <componentref id="frame-tape-d1-bottom" />
+                <componentref id="frame-tape-d2-bottom" />
+            </children>
+        </component>
+
+        <!-- Cbum Frame -->
+        <component id="frame-cbum-picture">
+            <transformation>
+                <scale x="0.8" y="0.85" z="1" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="cbum" length_t="1" length_s="1" />
+            <children>
+                <primitiveref id="rectangle" />
+            </children>
+        </component>
+        <component id="frame-cbum">
+            <transformation>
+                <scale x="2" y="2" z="1" />
+                <translate x="1" y="1" z="0.01" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="none" />
+            <children>
+                <componentref id="frame-tapes" />
+                <componentref id="frame-cbum-picture" />
+            </children>
+        </component>
+
+        <!-- Minion Frame -->
+        <component id="frame-minion-picture">
+            <transformation>
+                <scale x="0.8" y="0.85" z="1" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <textures>
+                <texture id="minion" length_t="1" length_s="1" />
+                <texture id="shark" length_t="1" length_s="1" />
+            </textures>
+            <children>
+                <primitiveref id="rectangle" />
+            </children>
+        </component>
+        <component id="frame-minion">
+            <transformation>
+                <scale x="2" y="2" z="1" />
+                <translate x="2" y="1" z="0.01" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="none" />
+            <children>
+                <componentref id="frame-tapes" />
+                <componentref id="frame-minion-picture" />
+            </children>
+        </component>
+
+        <!-- Ronnie Frame -->
+        <component id="frame-ronnie-picture">
+            <transformation>
+                <scale x="0.8" y="0.85" z="1" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="ronnie" length_t="1" length_s="1" />
+            <children>
+                <primitiveref id="rectangle" />
+            </children>
+        </component>
+        <component id="frame-ronnie">
+            <transformation>
+                <scale x="2" y="2" z="1" />
+                <translate x="3" y="1" z="0.01" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="none" />
+            <children>
+                <componentref id="frame-tapes" />
+                <componentref id="frame-ronnie-picture" />
+            </children>
+        </component>
+
+        <!-- ##### End Frames Components ##### -->
+
+        <!-- ##### Start Bench Component ##### -->
+
+        <!-- Bench feet  -->
+        <component id="bench-foot-rubber-protection-1">
+            <transformation>
+                <translate x="-0.075" y="-0.025" z="-0.025" />
+                <scale x="0.15" y="0.15" z="0.20" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="light-rubber" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="cube" />
+            </children>
+        </component>
+
+        <component id="bench-back-foot-steel-part-h">
+            <transformation>
+                <scale x="1.5" y="0.1" z="0.15" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="cube" />
+            </children>
+        </component>
+        <component id="bench-back-foot-rubber-protection-2">
+            <transformation>
+                <translate x="1.425" y="-0.025" z="-0.025" />
+                <scale x="0.15" y="0.15" z="0.20" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="light-rubber" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="cube" />
+            </children>
+        </component>
+        <component id="bench-back-foot">
+            <transformation>
+                <translate x="-0.25" y="0" z="0" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="bench-foot-rubber-protection-1" />
+                <componentref id="bench-back-foot-rubber-protection-2" />
+                <componentref id="bench-back-foot-steel-part-h" />
+            </children>
+        </component>
+
+        <component id="bench-front-foot-steel-part-h">
+            <transformation>
+                <scale x="1" y="0.1" z="0.15" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="cube" />
+            </children>
+        </component>
+        <component id="bench-front-foot-rubber-protection-2">
+            <transformation>
+                <translate x="0.925" y="-0.025" z="-0.025" />
+                <scale x="0.15" y="0.15" z="0.20" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="light-rubber" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="cube" />
+            </children>
+        </component>
+        <component id="bench-front-foot">
+            <transformation>
+                <translate x="0" y="0" z="1.9" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="bench-foot-rubber-protection-1" />
+                <componentref id="bench-front-foot-rubber-protection-2" />
+                <componentref id="bench-front-foot-steel-part-h" />
+            </children>
+        </component>
+
+        <component id="bench-feet-connector-h">
+            <transformation>
+                <translate x="0.425" y="0.5" z="1.415" />
+                <scale x="0.15" y="0.15" z="0.5" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="cube" />
+            </children>
+        </component>
+        <component id="bench-feet-connector-v">
+            <transformation>
+                <translate x="0.425" y="0" z="1.9" />
+                <scale x="0.15" y="0.65" z="0.15" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="cube" />
+            </children>
+        </component>
+        <component id="bench-feet-connector-d">
+            <transformation>
+                <rotate angle="-0.37" axis="x"/>
+                <translate x="0.425" y="-0.05" z="0.05" />
+                <scale x="0.15" y="0.15" z="1.557" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="cube" />
+            </children>
+        </component>
+        <component id="bench-feet-connector">
+            <transformation>
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="bench-feet-connector-h" />
+                <componentref id="bench-feet-connector-v" />
+                <componentref id="bench-feet-connector-d" />
+            </children>
+        </component>
+
+        <component id="bench-feet">
+            <transformation>
+            </transformation>
+            <materials>
+                <material id='inherit' />
+            </materials>
+            <texture id="dark-steel" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="bench-back-foot" />
+                <componentref id="bench-front-foot" />
+                <componentref id="bench-feet-connector" />
+            </children>
+        </component>
+
+        <!-- Bench adjustment & grab -->
+        <component id="bench-adjustment-1">
+            <transformation>
+                <scale x="0.035" y="1.25" z="0.035" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="cube" />
+            </children>
+        </component>
+        <component id="bench-adjustment-2">
+            <transformation>
+                <translate x="0.115" y="0" z="0" />
+                <scale x="0.035" y="1.25" z="0.035" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="cube" />
+            </children>
+        </component>
+        <component id="bench-adjustment">
+            <transformation>
+                <rotate angle="0.3" axis="x" />
+                <translate x="0.425" y="0.3" z="0.25" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="dark-steel" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="bench-adjustment-1" />
+                <componentref id="bench-adjustment-2" />
+            </children>
+        </component>
+        <component id="bench-grab">
+            <transformation>
+                <translate x="0.5" y="0.5" z="2" />
+                <scale x="0.75" y="0.75" z="0.25" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="dark-steel" length_t="1" length_s="1"/>
+            <children>
+                <primitiveref id="cylinder" />
+            </children>
+        </component>
+
+        <!-- Bench seat & backrest  -->
+        <component id="bench-pillow-top-layer">
+            <transformation>
+                <translate x="0" y="0.04" z="0" />
+                <scale x="1" y="0.1" z="1" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="black-leather" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="cube" />
+            </children>
+        </component>
+        <component id="bench-pillow-bottom-layer">
+            <transformation>
+                <scale x="1" y="0.04" z="1" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="red" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="cube" />
+            </children>
+        </component>
+        <component id="bench-pillow">
+            <transformation>
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="none" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="bench-pillow-top-layer" />
+                <componentref id="bench-pillow-bottom-layer" />
+            </children>
+        </component>
+        <component id="bench-backrest">
+            <transformation>
+                <translate x="0" y="2.075" z="0" />
+                <rotate angle="0.785" axis="x" />
+                <scale x="0.90" y="1" z="2" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="none" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="bench-pillow-top-layer" />
+                <componentref id="bench-pillow-bottom-layer" />
+            </children>
+        </component>
+        <component id="bench-seat">
+            <transformation>
+                <translate x="0" y="0.65" z="1.415" />
+                <scale x="0.90" y="1" z="0.75" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="none" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="bench-pillow-top-layer" />
+                <componentref id="bench-pillow-bottom-layer" />
+            </children>
+        </component>
+
+        <component id="bench">
+            <transformation>
+                <translate x="3" y="0.025" z="2" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="none" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="bench-feet" />
+                <componentref id="bench-backrest" />
+                <componentref id="bench-seat" />
+                <componentref id="bench-adjustment" />
+                <componentref id="bench-grab" />
+            </children>
+        </component>
+
+        <!-- ##### End Bench Component ##### -->
+
+        <!-- ##### Start Barbell Component ##### -->
+
+        <component id="barbell-shaft">
+            <transformation>
+                <translate x="-2.25" y="0" z="0" />
+                <scale x="4.5" y="0.75" z="0.75" />
+                <rotate angle="1.57" axis="y" />
+            </transformation>
+            <materials>
+                <material id="white-default-material"/>
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1"/>
+            <children>
+                <primitiveref id="cylinder" />
+            </children>
+        </component>
+        <component id="barbell-collar-1">
+            <transformation>
+                <translate x="1.75" y="0" z="0" />
+                <scale x="0.15" y="0.075" z="0.075" />
+                <rotate angle="1.57" axis="y" />
+            </transformation>
+            <materials>
+                <material id="white-default-material"/>
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1"/>
+            <children>
+                <primitiveref id="torus" />
+            </children>
+        </component>
+        <component id="barbell-collar-2">
+            <transformation>
+                <translate x="-1.75" y="0" z="0" />
+                <scale x="0.15" y="0.075" z="0.075" />
+                <rotate angle="1.57" axis="y" />
+            </transformation>
+            <materials>
+                <material id="white-default-material"/>
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1"/>
+            <children>
+                <primitiveref id="torus" />
+            </children>
+        </component>
+        <component id="barbell">
+            <transformation>
+                <translate x="3.4" y="2.45" z="2.105" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="light-steel" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="barbell-shaft" />
+                <componentref id="barbell-collar-1" />
+                <componentref id="barbell-collar-2" />
+            </children>
+        </component>
+
+        <!-- ##### End Olympic Barbell Component ##### -->
+
+        <!-- ##### Start Barbell Rack Component ##### -->
+
+        <component id="barbell-rack-foot-protection-1">
+            <transformation>
+                <translate x="-0.075" y="-0.025" z="-0.025" />
+                <scale x="0.15" y="0.15" z="0.20" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="cube" />
+            </children>
+        </component>
+        <component id="barbell-rack-foot-protection-2">
+            <transformation>
+                <translate x="-0.075" y="-0.025" z="-0.025" />
+                <scale x="0.15" y="0.15" z="0.20" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="cube" />
+            </children>
+        </component>
+        <component id="barbell-rack-foot-steel-part">
+            <transformation>
+                <scale x="0.15" y="0.1" z="1.5" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="cube" />
+            </children>
+        </component>
+        <component id="barbell-rack-foot-1">
+            <transformation>
+                <rotate angle="-1.57" axis="y" />
+                <translate x="0.25" y="0" z="0" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="bench-back-foot" />
+            </children>
+        </component>
+        <component id="barbell-rack-foot-2">
+            <transformation>
+                <translate x="2.9" y="0" z="0" />
+                <rotate angle="-1.57" axis="y" />
+                <translate x="0.25" y="0" z="0" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="bench-back-foot" />
+            </children>
+        </component>
+        <component id="barbell-rack-v-1">
+            <transformation>
+                <translate x="-0.15" y="0" z="0.675" />
+                <scale x="0.15" y="3.5" z="0.15" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="cube" />
+            </children>
+        </component>
+        <component id="barbell-rack-v-2">
+            <transformation>
+                <translate x="2.75" y="0" z="0.675" />
+                <scale x="0.15" y="3.5" z="0.15" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="cube" />
+            </children>
+        </component>
+        <component id="barbell-rack-h-1">
+            <transformation>
+                <translate x="0" y="0.75" z="0.675" />
+                <scale x="2.9" y="0.05" z="0.15" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="cube" />
+            </children>
+        </component>
+        <component id="barbell-rack-h-2">
+            <transformation>
+                <translate x="0" y="0.5" z="0.675" />
+                <scale x="2.9" y="0.05" z="0.15" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="cube" />
+            </children>
+        </component>
+        <component id="barbell-rack-1">
+            <transformation>
+                <translate x="-0.15" y="2.25" z="0.825" />
+                <rotate angle="-0.785" axis="x" />
+                <scale x="0.15" y="0.05" z="0.25" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="cube" />
+            </children>
+        </component>
+        <component id="barbell-rack-2">
+            <transformation>
+                <translate x="2.75" y="2.25" z="0.825" />
+                <rotate angle="-0.785" axis="x" />
+                <scale x="0.15" y="0.05" z="0.25" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="cube" />
+            </children>
+        </component>
+        <component id="barbell-rack">
+            <transformation>
+                <translate x="2" y="0.025" z="1.25" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="dark-steel" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="barbell-rack-foot-1" />
+                <componentref id="barbell-rack-foot-2" />
+                <componentref id="barbell-rack-v-1" />
+                <componentref id="barbell-rack-v-2" />
+                <componentref id="barbell-rack-h-1" />
+                <componentref id="barbell-rack-h-2" />
+                <componentref id="barbell-rack-1" />
+                <componentref id="barbell-rack-2" />
+            </children>
+        </component>
+
+        <!-- ##### End Barbell Rack Component ##### -->
+
+        <!-- ##### Start Plates Rack Component ##### -->
+
+        <!-- Back floor protections of plates rack -->
+        <component id="plates-rack-floor-protection-left">
+            <transformation>
+                <translate x="-0.375" y="0" z="0" />
+                <scale x="0.1" y="0.1" z="0.1" />
+                <rotate angle="1.57" axis="x" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="light-rubber" length_t="1" length_s="1" />
+            <children>
+                <primitiveref id="torus" />
+            </children>
+        </component>
+        <component id="plates-rack-floor-protection-right">
+            <transformation>
+                <translate x="0.375" y="0" z="0" />
+                <scale x="0.1" y="0.1" z="0.1" />
+                <rotate angle="1.57" axis="x" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="light-rubber" length_t="1" length_s="1" />
+            <children>
+                <primitiveref id="torus" />
+            </children>
+        </component>
+
+        <!-- Back structure of plates rack -->
+        <component id="plates-rack-floor-back-structure">
+            <transformation>
+                <translate x="-0.5" y="0.025" z="-0.1" />
+                <scale x="1" y="0.175" z="0.2" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="light-rubber" length_t="1" length_s="1" />
+            <children>
+                <componentref id="cube" />
+            </children>
+        </component>
+
+        <!-- Back of plate rack -->
+        <component id="plates-rack-back">
+            <transformation>
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="none" />
+            <children>
+                <componentref id="plates-rack-floor-back-structure" />
+                <componentref id="plates-rack-floor-protection-left" />
+                <componentref id="plates-rack-floor-protection-right" />
+            </children>
+        </component>
+
+        <!-- Middle structure of plates rack -->
+        <component id="plates-rack-middle-left">
+            <transformation>
+                <translate x="-0.325" y="0.125" z="0" />
+                <scale x="1.3" y="1.3" z="2" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1"/>
+            <children>
+                <primitiveref id="cylinder" />
+            </children>
+        </component>
+        <component id="plates-rack-middle-right">
+            <transformation>
+                <translate x="0.325" y="0.125" z="0" />
+                <scale x="1.3" y="1.3" z="2" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1"/>
+            <children>
+                <primitiveref id="cylinder" />
+            </children>
+        </component>
+        <component id="plates-rack-middle">
+            <transformation>
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="dark-steel" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="plates-rack-middle-left" />
+                <componentref id="plates-rack-middle-right" />
+            </children>
+        </component>
+
+        <component id="plates-rack-floor-front-structure">
+            <transformation>
+                <translate x="0" y="0.1" z="0" />
+                <scale x="1" y="0.714" z="1" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="light-rubber" length_t="1" length_s="1" />
+            <children>
+                <componentref id="plates-rack-floor-back-structure" />
+            </children>
+        </component>
+        <component id="plates-rack-front-floor-protection-lateral-top">
+            <transformation>
+                <translate x="0.707" y="0" z="0" />
+                <rotate angle="0.785" axis="z" />
+                <rotate angle="1.57" axis="y" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="light-rubber" length_t="1" length_s="1"/>
+            <children>
+                <primitiveref id="rectangle" />
+            </children>
+        </component>
+        <component id="plates-rack-front-floor-protection-lateral-left">
+            <transformation>
+                <scale x="0.707" y="0.707" z="1" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="light-rubber" length_t="1" length_s="1"/>
+            <children>
+                <primitiveref id="triangle" />
+            </children>
+        </component>
+        <component id="plates-rack-front-floor-protection-lateral-right">
+            <transformation>
+                <translate x="0" y="0" z="-1" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="light-rubber" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="plates-rack-front-floor-protection-lateral-left" />
+            </children>
+        </component>
+        <component id="plates-rack-front-floor-protection-lateral-base">
+            <transformation>
+                <translate x="0" y="0" z="-1" />
+                <scale x="0.707" y="1" z="1" />
+                <rotate angle="1.57" axis="x" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="light-rubber" length_t="1" length_s="1"/>
+            <children>
+                <primitiveref id="rectangle" />
+            </children>
+        </component>
+
+        <component id="plates-rack-front-floor-protection-lateral1">
+            <transformation>
+                <translate x="-0.15" y="0.125" z="-0.1" />
+                <rotate angle="3.14" axis="z" />
+                <scale x="0.15" y="0.178" z="0.2" />
+                <translate x="0" y="0" z="1" />
+            </transformation>
+            <materials>
+            <material id="white-default-material" />
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="plates-rack-front-floor-protection-lateral-top" />
+                <componentref id="plates-rack-front-floor-protection-lateral-left" />
+                <componentref id="plates-rack-front-floor-protection-lateral-right" />
+                <componentref id="plates-rack-front-floor-protection-lateral-base" />
+            </children>
+        </component>
+        <component id="plates-rack-front-floor-protection-lateral2">
+            <transformation>
+                <translate x="0.15" y="0.125" z="-0.1" />
+                <rotate angle="3.14" axis="x" />
+                <scale x="0.15" y="0.178" z="0.2" />
+                <translate x="0" y="0" z="0" />
+            </transformation>
+            <materials>
+            <material id="white-default-material" />
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="plates-rack-front-floor-protection-lateral-top" />
+                <componentref id="plates-rack-front-floor-protection-lateral-left" />
+                <componentref id="plates-rack-front-floor-protection-lateral-right" />
+                <componentref id="plates-rack-front-floor-protection-lateral-base" />
+            </children>
+        </component>
+        <component id="plates-rack-front-floor-protection-base">
+            <transformation>
+                <translate x="-0.15" y="0" z="-0.1" />
+                <scale x="0.3" y="0.125" z="0.2" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="cube" />
+            </children>
+        </component>
+        <component id="plates-rack-front-floor-protection">
+            <transformation>
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="light-rubber" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="plates-rack-front-floor-protection-lateral1" />
+                <componentref id="plates-rack-front-floor-protection-lateral2" />
+                <componentref id="plates-rack-front-floor-protection-base" />
+            </children>
+        </component>
+
+        <!-- Front structure of plates rack -->
+        <component id="plates-rack-front">
+            <transformation>
+                <translate x="0" y="-0.05" z="2" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="none" />
+            <children>
+                <componentref id="plates-rack-floor-front-structure" />
+                <componentref id="plates-rack-front-floor-protection" />
+            </children>
+        </component>
+
+        <!-- Superior structure of plates rack -->
+        <component id="plates-rack-superior-structure-cylinder1">
+            <transformation>
+                <translate x="-0.435" y="0" z="0" />
+                <rotate axis="z" angle="-0.45" />
+                <rotate axis="x" angle="-1.57" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1"/>
+            <children>
+                <primitiveref id="cylinder" />
+            </children>
+        </component>
+        <component id="plates-rack-superior-structure-cylinder2">
+            <transformation>
+                <translate x="0.435" y="0" z="0" />
+                <rotate axis="z" angle="0.45" />
+                <rotate axis="x" angle="-1.57" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1"/>
+            <children>
+                <primitiveref id="cylinder" />
+            </children>
+        </component>
+        <component id="plates-rack-superior-structure-sphere">
+            <transformation>
+                <translate x="0" y="0.9" z="0" />
+                <scale x="0.05" y="0.05" z="0.05" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="inherit" length_t="1" length_s="1"/>
+            <children>
+                <primitiveref id="sphere" />
+            </children>
+        </component>
+        <component id="plates-rack-superior-structure">
+            <transformation>
+                <translate x="0" y="0.15" z="0" />
+                <scale x="0.75" y="0.65" z="0.75" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="dark-steel" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="plates-rack-superior-structure-cylinder1" />
+                <componentref id="plates-rack-superior-structure-cylinder2" />
+                <componentref id="plates-rack-superior-structure-sphere" />
+            </children>
+        </component>
+
+        <!-- Different superior structures of the plates rack -->
+        <component id="plates-rack-superior-structure1">
+            <transformation>
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="none" />
+            <children>
+                <componentref id="plates-rack-superior-structure" />
+            </children>
+        </component>
+        <component id="plates-rack-superior-structure2">
+            <transformation>
+                <translate x="0" y="0" z="0.5" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="none" />
+            <children>
+                <componentref id="plates-rack-superior-structure" />
+            </children>
+        </component>
+        <component id="plates-rack-superior-structure3">
+            <transformation>
+                <translate x="0" y="0" z="1" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="none" />
+            <children>
+                <componentref id="plates-rack-superior-structure" />
+            </children>
+        </component>
+        <component id="plates-rack-superior-structure4">
+            <transformation>
+                <translate x="0" y="0" z="1.5" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="none" />
+            <children>
+                <componentref id="plates-rack-superior-structure" />
+            </children>
+        </component>
+        <component id="plates-rack-superior-structure5">
+            <transformation>
+                <translate x="0" y="0" z="2" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="none" />
+            <children>
+                <componentref id="plates-rack-superior-structure" />
+            </children>
+        </component>
+
+        <!-- Plates rack -->
+        <component id="plates-rack">
+            <transformation>
+                <translate x="0.75" y="0.03" z="4" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="none" />
+            <children>
+                <componentref id="plates-rack-back" />
+                <componentref id="plates-rack-middle" />
+                <componentref id="plates-rack-front" />
+                <componentref id="plates-rack-superior-structure1" />
+                <componentref id="plates-rack-superior-structure2" />
+                <componentref id="plates-rack-superior-structure3" />
+                <componentref id="plates-rack-superior-structure4" />
+                <componentref id="plates-rack-superior-structure5" />
+            </children>
+        </component>
+
+        <!-- ##### End Plates Rack Component ##### -->
+
+        <!-- ##### Start Plates Components ##### -->
+
+        <component id="plate-inner-torus-5">
+            <transformation>
+                <scale x="0.25" y="0.25" z="0.075" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <textures>
+                <texture id="plate-color-5" length_t="1" length_s="1" />
+                <texture id="plate-color-10" length_t="1" length_s="1" />
+                <texture id="plate-color-15" length_t="1" length_s="1" />
+                <texture id="plate-color-20" length_t="1" length_s="1" />
+            </textures>
+            <children>
+                <primitiveref id='torus1' />
+            </children>
+        </component>
+        <component id="plate-inner-torus-10">
+            <transformation>
+                <scale x="0.25" y="0.25" z="0.075" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <textures>
+                <texture id="plate-color-10" length_t="1" length_s="1" />
+                <texture id="plate-color-5" length_t="1" length_s="1" />
+                <texture id="plate-color-15" length_t="1" length_s="1" />
+                <texture id="plate-color-20" length_t="1" length_s="1" />
+            </textures>
+            <children>
+                <primitiveref id='torus1' />
+            </children>
+        </component>
+        <component id="plate-inner-torus-15">
+            <transformation>
+                <scale x="0.25" y="0.25" z="0.075" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <textures>
+                <texture id="plate-color-15" length_t="1" length_s="1" />
+                <texture id="plate-color-10" length_t="1" length_s="1" />
+                <texture id="plate-color-5" length_t="1" length_s="1" />
+                <texture id="plate-color-20" length_t="1" length_s="1" />
+            </textures>
+            <children>
+                <primitiveref id='torus1' />
+            </children>
+        </component>
+        <component id="plate-inner-torus-20">
+            <transformation>
+                <scale x="0.25" y="0.25" z="0.075" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <textures>
+                <texture id="plate-color-20" length_t="1" length_s="1" />
+                <texture id="plate-color-15" length_t="1" length_s="1" />
+                <texture id="plate-color-10" length_t="1" length_s="1" />
+                <texture id="plate-color-5" length_t="1" length_s="1" />
+            </textures>
+            <children>
+                <primitiveref id='torus1' />
+            </children>
+        </component>
+
+        <component id="plate-central-torus-5">
+            <transformation>
+                <scale x="0.5" y="0.5" z="0.025" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <textures>
+                <texture id="plate-letters-5" length_t="1" length_s="1" />
+                <texture id="plate-letters-10" length_t="1" length_s="1" />
+                <texture id="plate-letters-15" length_t="1" length_s="1" />
+                <texture id="plate-letters-20" length_t="1" length_s="1" />
+            </textures>
+            <children>
+                <primitiveref id='torus2' />
+            </children>
+        </component>
+        <component id="plate-central-torus-10">
+            <transformation>
+                <scale x="0.5" y="0.5" z="0.025" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <textures>
+                <texture id="plate-letters-10" length_t="1" length_s="1" />
+                <texture id="plate-letters-5" length_t="1" length_s="1" />
+                <texture id="plate-letters-15" length_t="1" length_s="1" />
+                <texture id="plate-letters-20" length_t="1" length_s="1" />
+            </textures>
+            <children>
+                <primitiveref id='torus2' />
+            </children>
+        </component>
+        <component id="plate-central-torus-15">
+            <transformation>
+                <scale x="0.5" y="0.5" z="0.025" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <textures>
+                <texture id="plate-letters-15" length_t="1" length_s="1" />
+                <texture id="plate-letters-10" length_t="1" length_s="1" />
+                <texture id="plate-letters-5" length_t="1" length_s="1" />
+                <texture id="plate-letters-20" length_t="1" length_s="1" />
+            </textures>
+            <children>
+                <primitiveref id='torus2' />
+            </children>
+        </component>
+        <component id="plate-central-torus-20">
+            <transformation>
+                <scale x="0.5" y="0.5" z="0.025" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <textures>
+                <texture id="plate-letters-20" length_t="1" length_s="1" />
+                <texture id="plate-letters-15" length_t="1" length_s="1" />
+                <texture id="plate-letters-10" length_t="1" length_s="1" />
+                <texture id="plate-letters-5" length_t="1" length_s="1" />
+            </textures>
+            <children>
+                <primitiveref id='torus2' />
+            </children>
+        </component>
+
+        <component id="plate-outer-torus-5">
+            <transformation>
+                <scale x="0.65" y="0.65" z="0.55" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <textures>
+                <texture id="plate-color-5" length_t="1" length_s="1" />
+                <texture id="plate-color-10" length_t="1" length_s="1" />
+                <texture id="plate-color-15" length_t="1" length_s="1" />
+                <texture id="plate-color-20" length_t="1" length_s="1" />
+            </textures>
+            <children>
+                <primitiveref id='torus3' />
+            </children>
+        </component>
+        <component id="plate-outer-torus-10">
+            <transformation>
+                <scale x="0.65" y="0.65" z="0.55" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <textures>
+                <texture id="plate-color-10" length_t="1" length_s="1" />
+                <texture id="plate-color-5" length_t="1" length_s="1" />
+                <texture id="plate-color-15" length_t="1" length_s="1" />
+                <texture id="plate-color-20" length_t="1" length_s="1" />
+            </textures>
+            <children>
+                <primitiveref id='torus3' />
+            </children>
+        </component>
+        <component id="plate-outer-torus-15">
+            <transformation>
+                <scale x="0.65" y="0.65" z="0.55" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <textures>
+                <texture id="plate-color-15" length_t="1" length_s="1" />
+                <texture id="plate-color-10" length_t="1" length_s="1" />
+                <texture id="plate-color-5" length_t="1" length_s="1" />
+                <texture id="plate-color-20" length_t="1" length_s="1" />
+            </textures>
+            <children>
+                <primitiveref id='torus3' />
+            </children>
+        </component>
+        <component id="plate-outer-torus-20">
+            <transformation>
+                <scale x="0.65" y="0.65" z="0.55" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <textures>
+                <texture id="plate-color-20" length_t="1" length_s="1" />
+                <texture id="plate-color-15" length_t="1" length_s="1" />
+                <texture id="plate-color-10" length_t="1" length_s="1" />
+                <texture id="plate-color-5" length_t="1" length_s="1" />
+            </textures>
+            <children>
+                <primitiveref id='torus3' />
+            </children>
+        </component>
+            
+        <component id="plate-l">
+            <transformation>
+                <translate x="1.61" y="2.45" z="2.105" />
+                <rotate angle="1.57" axis="y" />
+                <scale x="0.75" y="0.75" z="1" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="none"  />
+            <children>
+                <componentref id="plate-inner-torus-15" />
+                <componentref id="plate-central-torus-15" />
+                <componentref id="plate-outer-torus-15" />
+            </children>
+        </component>
+        <component id="plate-r">
+            <transformation>
+                <translate x="5.2" y="2.45" z="2.105" />
+                <rotate angle="1.57" axis="y" />
+                <scale x="0.75" y="0.75" z="1" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="none"  />
+            <children>
+                <componentref id="plate-inner-torus-15" />
+                <componentref id="plate-central-torus-15" />
+                <componentref id="plate-outer-torus-15" />
+            </children>
+        </component>
+
+        <component id="plate-1">
+            <transformation>
+                <translate x="0" y="0.65" z="0.15" />
+                <translate x="0.75" y="0.03" z="4" />
+                <scale x="0.75" y="0.75" z="1" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="none" />
+            <children>
+                <componentref id="plate-inner-torus-5" />
+                <componentref id="plate-central-torus-5" />
+                <componentref id="plate-outer-torus-5" />
+            </children>
+        </component>
+        <component id="plate-2">
+            <transformation>
+                <translate x="0" y="0.65" z="0.4" />
+                <translate x="0.75" y="0.03" z="4" />
+                <rotate angle="0.17" axis="x" />
+                <scale x="0.75" y="0.75" z="1" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="none" />
+            <children>
+                <componentref id="plate-inner-torus-5" />
+                <componentref id="plate-central-torus-5" />
+                <componentref id="plate-outer-torus-5" />
+            </children>
+        </component>
+        <component id="plate-3">
+            <transformation>
+                <translate x="0" y="0.65" z="0.9" />
+                <translate x="0.75" y="0.03" z="4" />
+                <rotate angle="0.3" axis="x" />
+                <scale x="0.75" y="0.75" z="1" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="none" />
+            <children>
+                <componentref id="plate-inner-torus-10" />
+                <componentref id="plate-central-torus-10" />
+                <componentref id="plate-outer-torus-10" />
+            </children>
+        </component>
+        <component id="plate-4">
+            <transformation>
+                <translate x="0" y="0.65" z="1.6" />
+                <translate x="0.75" y="0.03" z="4" />
+                <scale x="0.75" y="0.75" z="1" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="none" />
+            <children>
+                <componentref id="plate-inner-torus-10" />
+                <componentref id="plate-central-torus-10" />
+                <componentref id="plate-outer-torus-10" />
+            </children>
+        </component>
+        <component id="plate-5">
+            <transformation>
+                <translate x="0" y="0.65" z="1.75" />
+                <translate x="0.75" y="0.03" z="4" />
+                <scale x="0.75" y="0.75" z="1" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="none" />
+            <children>
+                <componentref id="plate-inner-torus-15" />
+                <componentref id="plate-central-torus-15" />
+                <componentref id="plate-outer-torus-15" />
+            </children>
+        </component>
+        <component id="plate-6">
+            <transformation>
+                <translate x="0" y="0.65" z="1.9" />
+                <translate x="0.75" y="0.03" z="4" />
+                <scale x="0.75" y="0.75" z="1" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="none" />
+            <children>
+                <componentref id="plate-inner-torus-20" />
+                <componentref id="plate-central-torus-20" />
+                <componentref id="plate-outer-torus-20" />
+            </children>
+        </component>
+        <component id="plate-7">
+            <transformation>
+                <translate x="5.075" y="0.55" z="2" /> 
+                <rotate angle="0.2" axis="z"/>
+                <rotate angle="1.57" axis="y"/>
+                <scale x="0.75" y="0.75" z="1" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="none" />
+            <children>
+                <componentref id="plate-inner-torus-20" />
+                <componentref id="plate-central-torus-20" />
+                <componentref id="plate-outer-torus-20" />
+            </children>
+        </component>
+        <component id="plate-8">
+            <transformation>
+                <translate x="5.4" y="0.5" z="1.9" /> 
+                <rotate angle="0.7" axis="z"/>
+                <rotate angle="1.57" axis="y"/>
+                <scale x="0.75" y="0.75" z="1" />
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+            </materials>
+            <texture id="none" />
+            <children>
+                <componentref id="plate-inner-torus-20" />
+                <componentref id="plate-central-torus-20" />
+                <componentref id="plate-outer-torus-20" />
+            </children>
+        </component>
+
+        <!-- ##### End Plates Components ##### -->
+
+        <!-- ##### Start Dumbbell Components ##### -->  
+
+        <component id="closed-cylinder-base">
+            <transformation>
+                <scale x="5" y="5" z="0.35" />
+                <translate x="0" y="0" z="-0.5" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="plate-color" length_t="1" length_s="1"/>
+            <children>
+                <primitiveref id="cylinder" />
+            </children>
+        </component>
+        <component id="closed-cylinder-top">
+            <transformation>
+                <translate x="0" y="0" z="0.175" />
+                <scale x="0.255" y="0.25" z="0.005" />
+                <rotate angle="1.57" axis="y" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="dumbbell-10" length_t="1" length_s="1" />
+            <children>
+                <primitiveref id="sphere" />
+            </children>
+        </component>
+        <component id="closed-cylinder-bottom">
+            <transformation>
+                <translate x="0" y="0" z="-0.175" />
+                <scale x="0.255" y="0.25" z="0.005" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="plate-color" length_t="1" length_s="1" />
+            <children>
+                <primitiveref id="sphere" />
+            </children>
+        </component>
+        <component id="closed-cylinder">
+            <transformation>
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="none" />
+            <children>
+                <componentref id="closed-cylinder-base" />
+                <componentref id="closed-cylinder-top" />
+                <componentref id="closed-cylinder-bottom" />
+            </children>
+        </component>
+        <component id="dumbbell-plate-top">
+            <transformation>
+                <translate x="0" y="0" z="0.5" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="none" />
+            <children>
+                <componentref id="closed-cylinder" />
+            </children>
+        </component>
+        <component id="dumbbell-plate-middle">
+            <transformation>
+                <scale x="1.4" y="1.4" z="1" />
+                <translate x="0" y="0" z="-0.5" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="black-metal" length_t="1" length_s="1" />
+            <children>
+                <primitiveref id="cylinder" />
+            </children>
+        </component>
+        <component id="dumbbell-plate-bottom">
+            <transformation>
+                <rotate angle="3.14" axis="y" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="none" />
+            <children>
+                <componentref id="dumbbell-plate-top" />
+            </children>
+        </component>
+        <component id="dumbbell">
+            <transformation>
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="none" />
+            <children>
+                <componentref id="dumbbell-plate-top" />
+                <componentref id="dumbbell-plate-middle" />
+                <componentref id="dumbbell-plate-bottom" />
+            </children>
+        </component>
+        <component id="dumbbell-1">
+            <transformation>
+                <translate x="8" y="1.6875" z="2.25" />
+                <scale x="0.75" y="0.75" z="0.75" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="none" />
+            <children>
+                <componentref id="dumbbell" />
+            </children>
+        </component>
+        <component id="dumbbell-2">
+            <transformation>
+                <translate x="8.1" y="1.77" z="2.26" />
+                <rotate angle="1.57" axis="y" />
+                <rotate angle="0.17" axis="x" />
+                <scale x="0.75" y="0.75" z="0.75" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="none" />
+            <children>
+                <componentref id="dumbbell" />
+            </children>
+        </component>
+        
+        <!-- ##### End Dumbbell Components ##### -->
+
+        <!-- demoRoot -->
+        <component id="demoRoot">
+            <transformation>
+            </transformation>
+            <materials>
+                <material id="white-default-material" />
+                <material id="dark-material" />
+            </materials>
+            <texture id="demoTexture" length_t="1" length_s="1"/>
+            <children>
+                <componentref id="dumbbell-1" />
+                <componentref id="dumbbell-2" />
+                <componentref id="gym-mat-1" />
+                <componentref id="gym-mat-2" />
+                <componentref id="boxe-bag-base" />
+                <componentref id="floor" />
+                <componentref id="wall-right" />
+                <componentref id="wall-left" />
+                <componentref id="digital-clock" />
+                <componentref id="frame-cbum" />
+                <componentref id="frame-minion" />
+                <componentref id="frame-ronnie" />
+                <componentref id="bench" />
+                <componentref id="barbell-rack" />
+                <componentref id="barbell" />
+                <componentref id="plate-r" />
+                <componentref id="plate-l" />
+                <componentref id="plate-1" />
+                <componentref id="plate-2" />
+                <componentref id="plate-3" />
+                <componentref id="plate-4" />
+                <componentref id="plate-5" />
+                <componentref id="plate-6" />
+                <componentref id="plate-7" />
+                <componentref id="plate-8" />
+                <componentref id="plates-rack" />
+                <componentref id="wall-ball-s" />
+                <componentref id="wall-ball-m" />
+                <componentref id="wall-ball-l" />
+                <componentref id="gym-box" />
+            </children>
+        </component>
+    </components>
+</sxs>
